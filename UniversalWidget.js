@@ -6,9 +6,8 @@ const log = DEBUG ? console.log.bind(console) : function () { };
 
 // configure the library
 const libraryInfo = {
-    name: 'HelloWorldWidgetLibrary',
-    version: 'master',
-    gitlabProject: 'https://gitlab.com/sillium-scriptable-projects/universal-scriptable-widget-libraries',
+    name: 'BudgetView',
+    version: 'main',
     forceDownload: DEBUG
 }
 
@@ -30,12 +29,6 @@ if (!config.runsInWidget) {
 Script.setWidget(widget)
 Script.complete()
 
-/**
- * - creates directory for library if not existing
- * - downloads library file if forced or not yet existing
- * - returns relative path to library module
- * @param {{name: string, version: string, gitlabProject: string, forceDownload: bool}} library
- */
 async function downloadLibrary(library) {
     let fm = FileManager.local()
 
@@ -56,7 +49,8 @@ async function downloadLibrary(library) {
         log("Not downloading library file")
     } else {
         let r = Math.random().toString(36).substring(7);
-        let libraryUrl = library.gitlabProject + '/-/raw/' + library.version + '/' + library.name + '.js?random=' + r
+        let libraryUrl = "https://raw.githubusercontent.com/artemmoroz/budget/refs/heads/"+library.version+"/"+
+            + library.name + '.js?random=' + r
         log("Downloading library file '" + libraryUrl + "' to '" + path + "'")
         const req = new Request(libraryUrl)
         let libraryFile = await req.load()
