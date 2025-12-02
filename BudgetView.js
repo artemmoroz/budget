@@ -51,7 +51,7 @@ async function createWidget(config) {
     // if (param != null && param.length > 0) {
     //     message = param
     // }
-
+    const data = await fetchBudget();
     const limit     = Number(data.weekly_limit ?? 0);
     const remaining = Number(data.weekly_remaining ?? 0);
     const spent     = limit ? (limit - remaining) : 0;
