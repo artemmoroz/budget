@@ -1,7 +1,7 @@
 // ===== CONFIG =====
 const API_KEY = "$2a$10$Wt9llNdvcsRBwbc2yTPc1u8oyrBHTfXWF6ER0T02PKAN9uvSUWopi";
 const CURRENCY  = "zł";
-const TITLE     = "Wee1222kly budget";
+const TITLE     = "Weekly budget";
 // JSONBin без meta в PUT
 const BIN_URL   = "https://api.jsonbin.io/v3/b/692f21a8d0ea881f400e4de6";
 // ==================
